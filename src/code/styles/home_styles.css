@@ -1,0 +1,721 @@
+/* GLOBAL */
+:root {
+    --primary: #2185D5;
+    --light-primary: #C7EEFF;
+    --secondary: #99A0DA;
+    --dark: #1D242B;
+    --dark-light: #3A4750;
+    --light: #FAFAFA;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    /* background: rgb(33,133,213); */
+    background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.cont-screen {
+    width: 96%;
+    margin: auto;
+    height: 92vh;
+    overflow: scroll;
+    background-color: white;
+    border-radius: 10px;
+    /* Add these lines to hide the scrollbar */
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+}
+
+.cont-screen::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari and Opera */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* HEADER */
+.header {
+    padding: 1% 0%;
+    width: 85%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 180px;
+}
+
+
+.menu ul li a svg {
+    width: 100%;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.menu ul li ul {
+    display: none;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0%;
+}
+
+.menu li a {
+    text-decoration: none;
+}
+
+.menu ul li a:hover {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.login ul li img {
+    width: 100%;
+    max-width: 85px;
+    border-radius: 100%;
+}
+
+#dropdown-more-options-content,
+#dropdown-image-options-content {
+    position: absolute;
+    background-color: var(--light-primary);
+    border-radius: 10px;
+    width: 10%;
+}
+
+#dropdown-more-options-content li,
+#dropdown-image-options-content li {
+    width: 80%;
+    margin: auto;
+    padding: 8% 0%;
+    text-align: left;
+    border-top: 1px solid black;
+}
+
+#dropdown-more-options-content li:hover a,
+#dropdown-image-options-content li:hover a {
+    transition: 500ms;
+    color: var(--primary);
+}
+
+
+#dropdown-more-options-content li:first-child,
+#dropdown-image-options-content li:first-child {
+    border-top: 0px solid black;
+}
+
+#dropdown-more-options-content li a,
+#dropdown-image-options-content li a {
+    color: var(--dark);
+    width: 100%;
+    padding-left: 10%;
+
+}
+
+/* SEARCH BAR */
+.search-bar {
+    max-width: 600px;
+    width: 100%;
+    max-height: 100px;
+}
+
+.search-bar-container-show {
+    width: 100%;
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    border-radius: 100px;
+    padding: 4px 0px;
+}
+
+.search-bar-container-show input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1em;
+    background: transparent;
+    padding: 0px 20px;
+    color: var(--light);
+}
+
+.search-bar-container-show input:focus {
+    outline: none;
+    color: var(--light);
+}
+
+.search-bar-container-show input::placeholder {
+    color: var(--light);
+    font-size: 1.2em;
+}
+
+.search-bar-container-show svg {
+    width: 100%;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0px 20px;
+    color: var(--light);
+}
+
+/* CONTENTS */
+.content-home-screen {
+    width: 85%;
+    margin: auto;
+    padding: 2% 0%;
+    /* align-items: normal !important; */
+    align-items: stretch;
+}
+
+.projects-shows {
+    width: 70%;
+}
+
+.projects-shows h2 {
+    font-size: 3em;
+    margin: 0px;
+}
+
+/* FILTER */
+.button-filter-by ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0%;
+}
+
+.button-filter-by ul a {
+    text-decoration: none;
+    color: black;
+    padding: 10% 37% !important;
+    margin-left: 60% !important;
+
+}
+
+/* CARD-PROJECT */
+.card-project {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--light-primary);
+    padding: 2%;
+    margin-top: 3%;
+}
+
+.card-project img {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    background-color: var(--light);
+    border-radius: 10px;
+}
+
+.card-project-info {
+    width: 75%;
+    margin-left: 3%;
+    padding: 0% 2%;
+}
+
+/* text of project */
+.card-project-info h3 {
+    font-size: 2em;
+    margin: 0px;
+}
+
+/* DESCRIPTION TEXT */
+.card-description-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 50%;
+}
+
+/* PROJECT CREATOR */
+.creator-id p span {
+    font-weight: 700;
+}
+
+/* BUTTON SKILLS */
+
+.button-skill,
+.button-filter-by ul li {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0%;
+}
+
+.button-skill p,
+.button-filter-by ul li a {
+    padding: 1% 1%;
+    max-width: 80px;
+    width: 100%;
+    background-color: var(--secondary);
+    color: var(--light);
+    text-align: center;
+    border-radius: 100px;
+    margin: 0px 0px;
+    margin-right: 2%;
+}
+
+/* FILTER BY */
+.filter-by-projects {
+    display: flex;
+    vertical-align: middle;
+}
+
+.filter-by-projects h4 {
+    vertical-align: middle;
+}
+
+.button-filter-by ul li {
+    padding: 2%;
+    margin: 0px 0px;
+    margin-right: 2%;
+    vertical-align: middle;
+}
+
+/* SHOW EVENTS */
+.events-shows {
+    width: 25%;
+    min-width: 287px;
+    height: auto;
+    padding: 0% 2%;
+    background-color: var(--primary);
+    border-radius: 10px;
+
+}
+
+.events-shows h3 {
+    color: var(--light);
+    font-size: 1.8em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.calendar-section-shows {
+    width: 100%;
+    /* height: 100%; */
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.calendar-section-shows img {
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+/*! CALENDAR CONFIG */
+#calendar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: auto;
+}
+
+#calendar div {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+#calendar .today {
+    background: red;
+    color: white;
+}
+
+#calendar .weekday {
+    background: var(--dark-light);
+    color: var(--light);
+    box-shadow: 0px 0px 0px 1px var(--dark-light);
+}
+
+.day {
+    box-shadow: 0px 0px 0px 1px var(--dark-light);
+    background-color: #fff;
+}
+
+.before-today {
+    background: #ccc;
+}
+
+/*! EVENT UPCOMING */
+
+.event-section-shows {
+    padding-bottom: 10%;
+}
+
+.card-event-upcoming {
+    width: 90%;
+    background-color: var(--light);
+    border-radius: 10px;
+    /* padding: 2%; */
+    margin: 2% auto;
+    justify-content: left;
+}
+
+.card-event-upcoming img {
+    max-width: 100px;
+    width: 100%;
+    margin: 0px;
+    /* BORDER RADIUS */
+    border-radius: 10px;
+    height: max-content;
+}
+
+.card-section-info-shows {
+    width: 100%;
+    padding: 0% 5%;
+}
+
+@media (max-width: 1060px) {
+    body {
+        background: var(--light) !important;
+    }
+
+    .cont-screen {
+        background-color: var(--light-primary);
+    }
+
+    /** HEADER */
+
+    .header {
+        width: 100%;
+    }
+
+    .search-bar {
+        max-width: 40%;
+    }
+
+    .content-home-screen {
+        width: 90%;
+        flex-direction: column-reverse;
+    }
+
+    /** LOGIN IMAGE  */
+    .login ul li img {
+        width: 80%;
+        max-width: 100px;
+        border-radius: 100%;
+        margin-left: 20%;
+    }
+
+    /** EVENTS SHOWS */
+    .events-shows {
+        width: 100%;
+        margin-top: 2%;
+        display: flex;
+        background-color: transparent;
+        justify-content: space-between;
+    }
+
+    .events-shows h3 {
+        margin-top: 0px;
+    }
+
+    .calendar-section-shows,
+    .event-section-shows {
+        width: 45%;
+        max-height: 300px;
+        margin: 0px;
+        padding: 30px 0px;
+        background-color: var(--primary);
+        border-radius: 20px;
+    }
+
+    .event-section-shows {
+        overflow-y: scroll;
+    }
+
+    /*! CALENDAR CONFIG */
+
+    #calendar {
+        width: 250px;
+        margin: auto;
+    }
+
+    #calendar div {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .weekday,
+    .day {
+        font-size: 0.8em;
+    }
+
+    /** PROJECTS */
+    .projects-shows {
+        width: 100%;
+    }
+
+    .projects-shows h2 {
+        margin: 9% 0% 0%;
+    }
+
+    .show-project {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .card-project {
+        background-color: var(--primary);
+        color: white;
+        width: 100%;
+        margin: 2% auto 5%;
+        padding: 0%;
+    }
+
+    .card-project img {
+        margin: 2%;
+    }
+
+    .card-project-info {
+        margin: 2%;
+    }
+
+    /** DROPDOWNS */
+    #dropdown-more-options-content,
+    #dropdown-image-options-content {
+        background-color: var(--primary);
+        box-shadow: 0px 0px 0px 1px var(--light);
+        width: 15%;
+    }
+
+    #dropdown-more-options-content li,
+    #dropdown-image-options-content li {
+        border-top: 1px solid var(--light);
+    }
+
+    #dropdown-more-options-content li a,
+    #dropdown-image-options-content li a {
+        color: var(--light);
+    }
+}
+
+@media (max-width: 700px) {
+
+    /** HEADER */
+
+    .header {
+        width: 80%;
+        background-color: var(--light);
+        border-radius: 100px;
+        height: 45px;
+        margin: 20px auto 0px;
+    }
+
+    .menu ul li a svg {
+        width: 100%;
+        max-width: 65px;
+        max-height: 65px;
+    }
+
+    /** SEARCH BAR */
+    .search-bar {
+        max-width: 60%;
+    }
+
+    .search-bar-container-show {
+        width: 100%;
+    }
+
+    .search-bar-container-show input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 0.8em;
+        background: transparent;
+        padding: 0px 20px;
+        color: var(--light);
+    }
+
+    .search-bar-container-show svg {
+        max-width: 30px;
+        max-height: 30px;
+        padding: 0px 10px;
+        color: var(--light);
+    }
+
+    /** LOGIN */
+    .login ul li img {
+        width: 45%;
+        max-width: 100px;
+        border-radius: 100%;
+        margin-left: 20%;
+        vertical-align: middle;
+    }
+
+    /** LOGO */
+    .logo img {
+        display: none;
+    }
+
+    /** EVENTS SHOWS */
+    .events-shows {
+        width: 100%;
+        margin-top: 2%;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: transparent;
+        justify-content: space-between;
+    }
+
+    .events-shows h3 {
+        margin-top: 0px;
+    }
+
+    .calendar-section-shows,
+    .event-section-shows {
+        width: 80%;
+        margin: 2% auto 5%;
+    }
+
+    .event-section-shows {
+        overflow-y: scroll;
+    }
+
+    /*! CALENDAR CONFIG */
+    #calendar {
+        width: 280px;
+        margin: auto;
+    }
+
+    #calendar div {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .weekday,
+    .day {
+        font-size: 0.8em;
+    }
+
+    /** CARD PROJECT */
+    .card-project img{
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .card-project-info h3{
+        font-size: 1.5em;
+    }
+
+    .card-project-info p{
+        font-size: 13px;
+    }
+
+    /*! DROPDOWN */
+    #dropdown-more-options-content, #dropdown-image-options-content {
+        width: 18%;
+    }
+}
+
+@media (max-width: 430px){
+    /** GENERAL */
+    .cont-screen {
+        height: 96vh;
+    }
+
+    /** HEADER */
+    .header {
+        width: 90%;
+    }
+
+    /** CALENDAR AND EVENTS */
+    .calendar-section-shows,
+    .event-section-shows {
+        width: 100%;
+        margin: 2% auto 5%;
+    }
+
+    /** EVENTS  */
+    .events-shows{
+        min-width: 230px;
+        padding: 0px;
+    }
+
+    .events-shows h3{
+        font-size: 1.5em;
+    }
+
+    /*!CALENDAR */
+    #calendar {
+        width: 210px;
+        margin: auto;
+    }
+
+    #calendar div {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    /*! DROPDOWN */
+    #dropdown-more-options-content, #dropdown-image-options-content {
+        width: 30%;
+    }
+
+    #dropdown-image-options-content{
+        right: 10%;
+        margin-top: 10px;
+    }
+
+    #dropdown-more-options-content li a, #dropdown-image-options-content li a {
+        font-size: 0.8em;
+    }
+
+    /*! PROJECTS  */
+    .projects-shows h2{
+        font-size: 2em;
+    }
+
+    /** CARD PROJECT */
+
+    .card-project img{
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .card-project-info h3{
+        font-size: 1.2em;
+    }
+
+    .card-description-text{
+        display: none;
+    }
+
+    .card-section-info-shows p{
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+}

@@ -1,0 +1,104 @@
+:root {
+    --primary-color: #2185D5;
+    --secondary-color: #C7EEFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.container .header {
+    background: var(--secondary-color);
+    width: 90%;
+    height: 10%;
+    border-radius: 35px;
+}
+
+.container .management {
+    background: var(--secondary-color);
+    width: 90%;
+    height: 80%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.management-header {
+    width: 100%;
+    height: 30%;
+}
+
+.management-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+    gap: 15px;
+}
+
+.result-item {
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    width: 90%;
+    border-radius: 35px;
+    padding: 10px;
+}
+
+.result-item .result-photo {
+    width: 10%;
+    display: flex;
+}
+
+.result-item .result-name {
+    width: 80%;
+    color: #FFFFFF;
+}
+
+.result-item .action-buttons {
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+.action-buttons .button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.action-buttons .button button {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: none;
+    font-size: 20px;
+}
