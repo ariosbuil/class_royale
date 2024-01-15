@@ -1,0 +1,237 @@
+:root {
+    --primary: #2185D5;
+    --light-primary: #C7EEFF;
+    --secondary: #99A0DA;
+    --dark: #1D242B;
+    --dark-light: #3A4750;
+    --light: #FAFAFA;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    /* background: rgb(33,133,213); */
+    background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.cont-screen {
+    width: 96%;
+    margin: auto;
+    height: 92vh;
+    overflow: scroll;
+    background-color: white;
+    border-radius: 10px;
+    /* Add these lines to hide the scrollbar */
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+}
+
+.cont-screen::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari and Opera */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* HEADER */
+.header {
+    padding: 1% 0%;
+    width: 85%;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: var(--light-primary);
+    border-radius: 100px;
+    margin-top: 40px;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 140px;
+}
+
+
+.menu ul li a svg {
+    width: 100%;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.menu ul li ul {
+    display: none;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0%;
+}
+
+.menu li a {
+    text-decoration: none;
+}
+
+.menu ul li a:hover {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.login ul li img {
+    width: 100%;
+    max-width: 65px;
+    border-radius: 100%;
+}
+
+#dropdown-more-options-content,
+#dropdown-image-options-content {
+    position: absolute;
+    background-color: var(--light-primary);
+    border-radius: 10px;
+    width: 10%;
+}
+
+#dropdown-more-options-content li,
+#dropdown-image-options-content li {
+    width: 80%;
+    margin: auto;
+    padding: 8% 0%;
+    text-align: left;
+    border-top: 1px solid black;
+}
+
+#dropdown-more-options-content li:hover a,
+#dropdown-image-options-content li:hover a {
+    transition: 500ms;
+    color: var(--primary);
+}
+
+
+#dropdown-more-options-content li:first-child,
+#dropdown-image-options-content li:first-child {
+    border-top: 0px solid black;
+}
+
+#dropdown-more-options-content li a,
+#dropdown-image-options-content li a {
+    color: var(--dark);
+    width: 100%;
+    padding-left: 10%;
+
+}
+
+/* SEARCH BAR */
+.search-bar {
+    max-width: 700px;
+    width: 100%;
+    max-height: 100px;
+}
+
+.search-bar-container-show {
+    width: 100%;
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    border-radius: 100px;
+    padding: 4px 0px;
+}
+
+.search-bar-container-show input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 1em;
+    background: transparent;
+    padding: 0px 20px;
+    color: var(--light);
+}
+
+.search-bar-container-show input:focus {
+    outline: none;
+    color: var(--light);
+}
+
+.search-bar-container-show input::placeholder {
+    color: var(--light);
+    font-size: 1.2em;
+}
+
+.search-bar-container-show svg {
+    width: 100%;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 0px 20px;
+    color: var(--light);
+}
+
+/** CONTENT-MANAGE-SCREEN */
+.content-manage-screen {
+    width: 85%;
+    margin: 5% auto;
+    padding: 2% 0%;
+    background-color: var(--light-primary);
+    border-radius: 10px;
+}
+
+.actual-project{
+    width: 90%;
+    margin: auto;
+    padding: 1% 0%;
+    background-color: var(--light-primary);
+    border-radius: 10px;
+    align-items: flex-start;
+}
+
+.actual-project img{
+    width: 100%;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 20px;
+}
+
+/* PROJECT INFO */
+.actual-project-info{
+    width: 65%;
+}
+
+.actual-project-info h2{
+    font-size: 43px;
+    color: var(--dark);
+    margin: 0% 0% 1% 0%;
+    text-transform: uppercase;
+}
+
+/* ICONS MODIFY */
+.icons-modify a{
+    margin: 0% 2%;
+}
+
+.icons-modify a svg{
+    background-color: var(--primary);
+    border-radius: 100%;
+    max-width: 30px;
+    max-height: 30px;
+    padding: 10px;
+}
+
+.icons-modify a svg:hover{
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: var(--light-primary);
+}
