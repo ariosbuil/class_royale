@@ -1,5 +1,5 @@
 <div>
-    <a href=""><img style="width: 120px;" src="../../../../img/logo.png" alt="Logo"></a>
+    <a href="../../home/home_professor.php"><img style="width: 120px;" src="../../../../img/logo.png" alt="Logo"></a>
 </div>
 
 <?php

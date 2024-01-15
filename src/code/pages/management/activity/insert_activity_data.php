@@ -16,9 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['add'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $total_score = mysqli_real_escape_string($conn, $_POST['total_score']);
     $selectedItem_id = mysqli_real_escape_string($conn, $_POST['item']);
+    $is_active = isset($_POST['is_active']) ? 1 : 0;
 
     // Perform the insertion into the database
-    $query = "INSERT INTO Activity (project_id, professor_id, name, total_score, activity_item_id) VALUES ('$selectedProject_id', '$professor_logged', '$name', '$total_score', '$selectedItem_id')";
+    $query = "INSERT INTO Activity (project_id, professor_id, name, total_score, activity_item_id, is_active) VALUES ('$selectedProject_id', '$professor_logged', '$name', '$total_score', '$selectedItem_id', '$is_active')";
     $result = mysqli_query($conn, $query);
 
     // Close the connection to the database

@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
             $_SESSION['professor_id'] = $row['professor_id'];
-            header("Location: ../management/student/student_management.php");
+            header("Location: ../home/home_professor.php");
         } else {
             echo "<script>alert('Username or Password is incorrect')</script>";
         }

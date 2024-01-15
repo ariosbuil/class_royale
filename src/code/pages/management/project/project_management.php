@@ -14,7 +14,7 @@ define("RESULTS_PER_PAGE", 3);
 
 
 // Total results
-$query = "SELECT COUNT(*) as total FROM Activity";
+$query = "SELECT COUNT(*) as total FROM Project";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 $totalResults = $row['total'];
@@ -29,7 +29,7 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 $startIndex = ($currentPage - 1) * RESULTS_PER_PAGE;
 
 // Get the results for the current page
-$query = "SELECT * FROM Activity WHERE professor_id = '$professor_id' LIMIT $startIndex, " . RESULTS_PER_PAGE;
+$query = "SELECT * FROM Project WHERE professor_id = '$professor_id' LIMIT $startIndex, " . RESULTS_PER_PAGE;
 $result = mysqli_query($conn, $query);
 
 /* Para hacer el icono del usuario logueado
@@ -60,7 +60,7 @@ $result = mysqli_query($conn, $query);
     <link rel="stylesheet" href="../../../styles/activity_management.css">
     <!-- Bootstap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Activity Management</title>
+    <title>Project Management</title>
 </head>
 
 <body>
@@ -70,10 +70,7 @@ $result = mysqli_query($conn, $query);
         </div>
         <div class="management">
             <div class="management-header">
-                <h1>Activity Management</h1>
-                <div class="filter">
-                    <input type="text" id="activityFilter" name="filterText" placeholder="Filter activities...">
-                </div>
+                <h1>Project Management</h1>
                 <div class="button">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                         <i class="fa-solid fa-plus"></i>
@@ -88,22 +85,19 @@ $result = mysqli_query($conn, $query);
                         <div class="result-name">
                             <h2><?php echo $row['name']; ?></h2>
                         </div>
+                        <div class="result-desc">
+                            <p><?php echo $row['description']; ?></p>
+                        </div>
                         <div class="action-buttons">
                             <div class="button">
-                                <button class="edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-activity-id="<?php echo $row['activity_id']; ?>" data-project-id="<?php echo $row['project_id']; ?>" data-professor-id="<?php echo $row['professor_id']; ?>" data-name="<?php echo $row['name']; ?>" data-total-score="<?php echo $row['total_score']; ?>" data-activity-item-id="<?php echo $row['activity_item_id']; ?>">
+                                <button class="edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-project-id="<?php echo $row['project_id']; ?>" data-professor-id="<?php echo $row['professor_id']; ?>" data-name="<?php echo $row['name']; ?>" data-median-score="<?php echo $row['median_score']; ?>" data-project_item_id="<?php echo $row['project_item_id']; ?>" data-description="<?php echo $row['description'] ?>" data>
                                     <i class="fa-solid fa-pencil"></i>
                                 </button>
                             </div>
                             <div class="button">
-                                <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-activity-id="<?php echo $row['activity_id']; ?>"><i class="fa-solid fa-x"></i></button>
+                                <button class="delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-project-id="<?php echo $row['project_id']; ?>"><i class="fa-solid fa-x"></i></button>
                             </div>
                         </div>
-                        <!-- Indicador visual -->
-                        <?php if ($row['is_active']): ?>
-                            <span style="color: green; margin-left: 10px;">Active</span>
-                        <?php else: ?>
-                            <span style="color: red; margin-left: 10px;">Inactive</span>
-                        <?php endif; ?>
                     </div>
                 <?php
                 }
@@ -113,7 +107,7 @@ $result = mysqli_query($conn, $query);
                     // Mostrar enlaces de paginación
                     for ($page = 1; $page <= $totalPages; $page++) {
                         $class = ($page == $currentPage) ? 'current' : '';
-                        echo "<a href='activity_management.php?page=$page' class='$class circle'>$page</a> ";
+                        echo "<a href='project_management.php?page=$page' class='$class circle'>$page</a> ";
                     }
                     ?>
                 </div>
@@ -128,36 +122,17 @@ $result = mysqli_query($conn, $query);
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Item</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Project</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="project">Select Project:</label>
-                            <select name="project" class="form-control" required>
-                                <option value="" disabled selected style="color: gray;">Select a Project...</option>
-                                <?php
-                                $query = "SELECT * FROM Project WHERE professor_id = '$professor_id'";
-                                $result = mysqli_query($conn, $query);
-
-                                if ($result && mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<option value='" . $row['project_id'] . "'>" . $row['name'];
-                                        "</option>";
-                                    }
-                                } else {
-                                    echo "<option value=''>No projects available</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" name="name" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="total_score">Total Score:</label>
-                            <input type="number" name="total_score" class="form-control" required min="0" max="10">
+                            <label for="total_score">Description:</label>
+                            <input type="number" name="description" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="item">Select Item:</label>
@@ -180,8 +155,8 @@ $result = mysqli_query($conn, $query);
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="is_active">Is Active:</label>
-                            <input type="checkbox" name="is_active" value="1" checked>
+                            <label for="photo">Photo:</label>
+                            <input type="file" name="photo" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -194,12 +169,12 @@ $result = mysqli_query($conn, $query);
     </form>
 
     <!-- Update Modal -->
-    <form action="update_activity_data.php" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Activity</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Project</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -266,16 +241,16 @@ $result = mysqli_query($conn, $query);
     </form>
 
     <!-- Remove Confirmation Modal -->
-    <form action="delete_activity_data.php" method="post" enctype="multipart/form-data">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Activity</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Project</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to delete this activity?</p>
+                        <p>Are you sure you want to delete this project?</p>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="activity_id" id="delete-activity-id">
@@ -309,33 +284,6 @@ $result = mysqli_query($conn, $query);
                     document.getElementById('delete-activity-id').value = button.dataset.activityId;
                 })
             })
-        });
-
-        // Handle the change in the filter field
-        var activityFilter = document.getElementById('activityFilter');
-
-        activityFilter.addEventListener('input', function() {
-            // Get the value of the filter
-            var filterText = activityFilter.value;
-
-            // Create an XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
-
-            // Configure the AJAX request
-            xhr.open('POST', 'searchactivities.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-            // Handle the response of the request
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Update the content of activities with the results
-                    var managementBody = document.querySelector('.management-body');
-                    managementBody.innerHTML = xhr.responseText;
-                }
-            };
-
-            // Send the request with the filter value
-            xhr.send('filterText=' + encodeURIComponent(filterText));
         });
     </script>
 

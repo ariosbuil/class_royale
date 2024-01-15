@@ -1,3 +1,21 @@
+<?php
+
+include '../../connection.php';
+
+session_start();
+
+$query = 'SELECT * FROM Project WHERE professor_id = ' . $_SESSION['professor_id'];
+$result = mysqli_query($conn, $query);
+
+$query2 = 'SELECT * FROM Project WHERE professor_id = ' . $_SESSION['professor_id'];
+$result2 = mysqli_query($conn, $query2);
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +48,8 @@
                   d="M12.005 11.995v.01m0-4.01v.01m0 7.99v.01" />
               </svg></a>
             <ul id="dropdown-more-options-content">
-              <li><a href="./../home/home_professor.html">Home</a></li>
-              <li><a href="./../management/professor">Projects</a></li>
+              <li><a href="./../home/home_professor.php">Home</a></li>
+              <li><a href="./../management//project/project_management.php">Projects</a></li>
               <li><a href="./../management/activity/activity_management.php">Activities</a></li>
               <li><a href="./../management/item/item_management.php">Items</a></li>
           </li>
@@ -54,11 +72,13 @@
           <ul>
             <li onclick="make_dropdown('dropdown-image-options', 'dropdown-image-options-content')">
               <a id="dropdown-image-options">
-                <img src="./../../../img/iconos/user-example.jpeg" alt="">
+                <?php 
+                  $photo_professor = "SELECT photo FROM Professor WHERE professor_id = " . $_SESSION['professor_id'];
+                  echo "<img style='width: 80px; height: 80px;' src='data:image/jpeg;base64," . base64_encode(mysqli_fetch_assoc(mysqli_query($conn, $photo_professor))['photo']) . "'>";
+                ?>
               </a>
               <ul id="dropdown-image-options-content">
-                <li><a href="">Change Image</a></li>
-                <li><a href="">Log Out</a></li>
+                  <li><a href="../login/logout_process.php">Log Out</a></li>
               </ul>
             </li>
           </ul>
@@ -81,14 +101,23 @@
         </div>
         <!-- PROJECTS -->
         <div class="show-projects">
+          <?php
+          while ($row = mysqli_fetch_assoc($result)) {
+          ?>
           <div class="card-project">
-            <img src="./../../../img/projects_and_events/React.png" alt="">
-            <div class="card-project-info">
-              <h3>Project Name</h3>
-              <p class="card-description-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolorem
-                aperiam necessitatibus.</p>
+            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($row['photo']) . ' " alt="Project Picture">'; ?>
+          <div class="card-project-info">
+              <h3><?php echo $row["name"] ?></h3>
+              <p class="card-description-text"><?php echo $row["description"] ?></p>
               <div class="creator-id">
-                <p><span>Created By:</span> RandomProfessor</p>
+                <p><span>Created By:</span>
+                <?php 
+                  $queryName = "SELECT name, surname FROM Professor WHERE professor_id = " . $row["professor_id"];
+                  $resultName = mysqli_query($conn, $queryName);
+                  $rowName = mysqli_fetch_assoc($resultName);
+                  echo $rowName["name"] . " " . $rowName["surname"];
+                ?>
+                </p>
               </div>
               <div class="button-skill">
                 <p>React</p>
@@ -96,36 +125,9 @@
               </div>
             </div>
           </div>
-          <div class="card-project">
-            <img src="./../../../img/projects_and_events/React.png" alt="">
-            <div class="card-project-info">
-              <h3>Project Name</h3>
-              <p class="card-description-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolorem
-                aperiam necessitatibus.</p>
-              <div class="creator-id">
-                <p><span>Created By:</span> RandomProfessor</p>
-              </div>
-              <div class="button-skill">
-                <p>React</p>
-                <p>React</p>
-              </div>
-            </div>
-          </div>
-          <div class="card-project">
-            <img src="./../../../img/projects_and_events/React.png" alt="">
-            <div class="card-project-info">
-              <h3>Project Name</h3>
-              <p class="card-description-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta dolorem
-                aperiam necessitatibus.</p>
-              <div class="creator-id">
-                <p><span>Created By:</span> RandomProfessor</p>
-              </div>
-              <div class="button-skill">
-                <p>React</p>
-                <p>React</p>
-              </div>
-            </div>
-          </div>
+          <?php
+          }
+          ?>
         </div>
       </div>
       <!-- EVENTS -->
@@ -142,33 +144,20 @@
         </div>
         <div class="event-section-shows">
           <h3>Upcoming Events</h3>
+          <?php
+          while ($row2 = mysqli_fetch_assoc($result2)) {
+          ?>
           <div class="card-event-upcoming flex">
-            <img src="./../../../img/iconos/user-example.jpeg" alt="">
+            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($row2['photo']) . ' " alt="Project Picture">'; ?>
             <div class="card-section-info-shows">
-              <h4>Event Name</h4>
-              <p>Event Description</p>
+            <p><?php echo $row2["name"] ?></p>
+            <p class="card-description-text"><?php echo $row2["description"] ?></p>
             </div>
           </div>
-          <div class="card-event-upcoming flex">
-            <img src="./../../../img/iconos/user-example.jpeg" alt="">
-            <div class="card-section-info-shows">
-              <h4>Event Name</h4>
-              <p>Event Description</p>
-            </div>
-          </div>
-          <div class="card-event-upcoming flex">
-            <img src="./../../../img/iconos/user-example.jpeg" alt="">
-            <div class="card-section-info-shows">
-              <h4>Event Name</h4>
-              <p>Event Description</p>
-            </div>
-          </div>
-          <div class="card-event-upcoming flex">
-            <img src="./../../../img/iconos/user-example.jpeg" alt="">
-            <div class="card-section-info-shows">
-              <h4>Event Name</h4>
-              <p>Event Description</p>
-            </div>
+          <?php
+          }
+          ?>
+        </div>
           </div>  
         </div>
       </div>
