@@ -49,7 +49,7 @@ $result2 = mysqli_query($conn, $query2);
               </svg></a>
             <ul id="dropdown-more-options-content">
               <li><a href="./../home/home_professor.php">Home</a></li>
-              <li><a href="./../management//project/project_management.php">Projects</a></li>
+              <li><a href="./../management/project/project_management.php">Projects</a></li>
               <li><a href="./../management/activity/activity_management.php">Activities</a></li>
               <li><a href="./../management/item/item_management.php">Items</a></li>
           </li>

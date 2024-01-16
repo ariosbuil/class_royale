@@ -57,7 +57,7 @@ $result = mysqli_query($conn, $query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
     <?php include '../../../layouts/fontawesome.php' ?>
-    <link rel="stylesheet" href="../../../styles/activity_management.css">
+    <link rel="stylesheet" href="../../../styles/project_management.css">
     <!-- Bootstap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Project Management</title>
@@ -82,6 +82,9 @@ $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                     <div class="result-item">
+                        <div class="result-photo">
+                            <?php echo '<img style="width: 60px; height: 60px; border-radius: 100%;" src="data:image/jpeg;base64,' . base64_encode($row['photo']) . ' " alt="Profile Picture">'; ?>
+                        </div>
                         <div class="result-name">
                             <h2><?php echo $row['name']; ?></h2>
                         </div>
@@ -90,7 +93,7 @@ $result = mysqli_query($conn, $query);
                         </div>
                         <div class="action-buttons">
                             <div class="button">
-                                <button class="edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-project-id="<?php echo $row['project_id']; ?>" data-professor-id="<?php echo $row['professor_id']; ?>" data-name="<?php echo $row['name']; ?>" data-median-score="<?php echo $row['median_score']; ?>" data-project_item_id="<?php echo $row['project_item_id']; ?>" data-description="<?php echo $row['description'] ?>" data>
+                                <button class="edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-project-id="<?php echo $row['project_id']; ?>" data-professor-id="<?php echo $row['professor_id']; ?>" data-name="<?php echo $row['name']; ?>" data-median-score="<?php echo $row['median_score']; ?>" data-project-item-id="<?php echo $row['project_item_id']; ?>" data-description="<?php echo $row['description'] ?>">
                                     <i class="fa-solid fa-pencil"></i>
                                 </button>
                             </div>
@@ -117,7 +120,7 @@ $result = mysqli_query($conn, $query);
     </div>
 
     <!-- Add Modal -->
-    <form action="insert_activity_data.php" method="post" enctype="multipart/form-data">
+    <form action="insert_project_data.php" method="post" enctype="multipart/form-data">
         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -132,7 +135,11 @@ $result = mysqli_query($conn, $query);
                         </div>
                         <div class="form-group">
                             <label for="total_score">Description:</label>
-                            <input type="number" name="description" class="form-control" required>
+                            <textarea name="description" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="total_score">Median Score:</label>
+                            <input type="number" name="median_score" class="form-control" required min="0" max="10">
                         </div>
                         <div class="form-group">
                             <label for="item">Select Item:</label>
@@ -169,7 +176,7 @@ $result = mysqli_query($conn, $query);
     </form>
 
     <!-- Update Modal -->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="update_project_data.php" method="post" enctype="multipart/form-data">
         <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -179,35 +186,20 @@ $result = mysqli_query($conn, $query);
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="project">Select Project:</label>
-                            <select name="project" class="form-control" id="edit-project-id" required>
-                                <option value="" disabled selected style="color: gray;">Select a Project...</option>
-                                <?php
-                                $query = "SELECT * FROM Project WHERE professor_id = '$professor_id'";
-                                $result = mysqli_query($conn, $query);
-
-                                if ($result && mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<option value='" . $row['project_id'] . "'>" . $row['name'];
-                                        "</option>";
-                                    }
-                                } else {
-                                    echo "<option value=''>No projects available</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" name="name" class="form-control" id="edit-name">
                         </div>
                         <div class="form-group">
-                            <label for="total_score">Total Score:</label>
-                            <input type="number" name="total_score" class="form-control" required min="0" max="10" id="edit-total-score">
+                            <label for="description">Description:</label>
+                            <textarea name="description" id="edit-description" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="total_score">Median Score:</label>
+                            <input type="number" name="median_score" class="form-control" required min="0" max="10" id="edit-median-score">
                         </div>
                         <div class="form-group">
                             <label for="item">Select Item:</label>
-                            <select name="item" class="form-control" id="edit-activity-item-id" required>
+                            <select name="item" class="form-control" id="edit-project-item-id" required>
                                 <option value="" disabled selected style="color: gray;">Select an Item...</option>
                                 <?php
                                 $query = "SELECT * FROM Item";
@@ -215,23 +207,21 @@ $result = mysqli_query($conn, $query);
 
                                 if ($result && mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<option value='" . $row['item_id'] . "'>" . $row['name'];
-                                        "</option>";
+                                        echo "<option value='" . $row['item_id'] . "'>" . $row['name'] . "</option>";
                                     }
                                 } else {
                                     echo "<option value=''>No items available</option>";
                                 }
-
                                 ?>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="is_active">Is Active:</label>
-                        <input type="checkbox" name="is_active" value="1" <?php echo isset($row['is_active']) && $row['is_active'] ? 'checked' : ''; ?>>
+                        <div class="form-group">
+                            <label for="photo">Photo:</label>
+                            <input type="file" name="photo" class="form-control">
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="hidden" name="activity_id" id="edit-activity-id">
+                        <input type="hidden" name="project_id" id="edit-project-id">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <input type="submit" class="btn btn-primary" name="update" value="UPDATE">
                     </div>
@@ -241,7 +231,7 @@ $result = mysqli_query($conn, $query);
     </form>
 
     <!-- Remove Confirmation Modal -->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="delete_project_data.php" method="post" enctype="multipart/form-data">
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -253,7 +243,7 @@ $result = mysqli_query($conn, $query);
                         <p>Are you sure you want to delete this project?</p>
                     </div>
                     <div class="modal-footer">
-                        <input type="hidden" name="activity_id" id="delete-activity-id">
+                        <input type="hidden" name="project_id" id="delete-project-id">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <input type="submit" class="btn btn-primary" name="delete" value="DELETE">
                     </div>
@@ -272,16 +262,16 @@ $result = mysqli_query($conn, $query);
                 button.addEventListener('click', function() {
                     document.getElementById('edit-project-id').value = button.dataset.projectId;
                     document.getElementById('edit-name').value = button.dataset.name;
-                    document.getElementById('edit-total-score').value = button.dataset.totalScore;
-                    document.getElementById('edit-activity-item-id').value = button.dataset.activityItemId;
-                    document.getElementById('edit-activity-id').value = button.dataset.activityId;
+                    document.getElementById('edit-description').value = button.dataset.description;
+                    document.getElementById('edit-median-score').value = button.dataset.medianScore;
+                    document.getElementById('edit-project-item-id').value = button.dataset.projectItemId;
                 });
             });
 
             var delete_buttons = document.querySelectorAll('.delete-btn');
             delete_buttons.forEach(function(button) {
                 button.addEventListener('click', function() {
-                    document.getElementById('delete-activity-id').value = button.dataset.activityId;
+                    document.getElementById('delete-project-id').value = button.dataset.projectId;
                 })
             })
         });
