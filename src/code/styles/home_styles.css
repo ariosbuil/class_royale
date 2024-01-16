@@ -19,6 +19,7 @@ body {
     background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    padding: 5% auto;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -28,8 +29,8 @@ body {
 .cont-screen {
     width: 96%;
     margin: auto;
-    height: 92vh;
-    overflow: scroll;
+    /* height: 92vh; */
+    /* overflow: scroll; */
     background-color: white;
     border-radius: 10px;
     /* Add these lines to hide the scrollbar */
