@@ -19,16 +19,16 @@ body {
     background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding: 5% auto;
     height: 100vh;
     display: flex;
     align-items: center;
     font-family: 'Inter', sans-serif;
+    padding: 40px 0px;
 }
 
 .cont-screen {
     width: 96%;
-    margin: auto;
+    margin: 25px auto;
     /* height: 92vh; */
     /* overflow: scroll; */
     background-color: white;
@@ -253,6 +253,20 @@ body {
     overflow: hidden;
     white-space: nowrap;
     width: 50%;
+}
+
+/* show-activities */
+.button-look-project a svg{
+    width: 100%;
+    max-width: 60px;
+    max-height: 60px;
+    fill: var(--secondary);
+}
+
+.button-look-project a svg:hover{
+    cursor: pointer;
+    transition: 0.4s;
+    fill: var(--primary);
 }
 
 /* PROJECT CREATOR */
