@@ -41,7 +41,6 @@ $resultActivity = mysqli_query($conn, $rowActivity);
                     echo '<h2>' . $resultProject['name'] . '</h2>';
                     echo '<p>' . $resultProject['description'] . '</p>';
                     ?>
-                </div>
                 <div class="icons-modify flex">
                     <a href="./activity_management.php">
                         Edit Activity
@@ -49,6 +48,7 @@ $resultActivity = mysqli_query($conn, $rowActivity);
                     <a href="./../project/project_management">
                         Edit Project
                     </a>
+                </div>
                 </div>
             </div>
             <div class="show-underline"></div>

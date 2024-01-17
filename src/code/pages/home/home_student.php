@@ -67,7 +67,7 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
                 ?>
               </a>
               <ul id="dropdown-image-options-content">
-                <li><a href="../management/student/student_profile.php">Change Image</a></li>
+                <li><a href="./../management/student/student_profile.php">Change Image</a></li>
                 <li><a href="">Log Out</a></li>
               </ul>
             </li>

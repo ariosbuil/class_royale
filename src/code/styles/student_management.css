@@ -33,13 +33,6 @@ body {
     padding: 1rem;
 }
 
-.container .header {
-    background: var(--secondary-color);
-    width: 90%;
-    height: 10%;
-    border-radius: 35px;
-}
-
 .container .management {
     background: var(--secondary-color);
     width: 90%;
