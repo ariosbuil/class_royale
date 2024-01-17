@@ -28,6 +28,8 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./../../styles/home_styles.css" />
+  <!-- GLOBAL CONFIGURATIONS -->
+  <link rel="stylesheet" href="./../../styles/global/global.css" />
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +45,7 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
       <div class="logo">
         <img src="./../../../img/logo.png" alt="logo" />
       </div>
-    
+
       <div class="search-bar">
         <div class="search-bar-container-show">
           <div class="flex">
@@ -59,7 +61,7 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
           <ul>
             <li onclick="make_dropdown('dropdown-image-options', 'dropdown-image-options-content')">
               <a id="dropdown-image-options">
-                <?php 
+                <?php
                 $queryPhoto = "SELECT photo FROM Student WHERE student_id = $studentId";
                 echo "<img style='width: 80px; height: 80px;' src='data:image/jpeg;base64," . base64_encode(mysqli_fetch_assoc(mysqli_query($conn, $queryPhoto))['photo']) . "'>";
                 ?>
@@ -72,7 +74,7 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
           </ul>
         </div>
       </div>
-      
+
     </div>
     <!-- CONTENT HOME -->
     <div class="content-home-screen flex">
@@ -116,7 +118,7 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
                 </div>
                 <div class="button-look-project">
                   <?php
-                  echo "<a href='./../management/project/project_management.php?project_id=" . $row['project_id'] . "'><svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 24 24'><path d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'/></svg></a>";
+                  echo "<a href='./../management/activity/student_manage_activity.php?project_id=" . $row['project_id'] . "'><svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 24 24'><path d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'/></svg></a>";
                   ?>
                 </div>
               </div>
