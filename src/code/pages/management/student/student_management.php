@@ -34,6 +34,10 @@ $result = mysqli_query($conn, $query);
 
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> 46df8f4 (ducha con la tostadora 100% real no fake 1 link mega mediafire)
     <!-- GLOBAL CONFIGURATIONS -->
     <link rel="stylesheet" href="./../../../styles/global/global.css" />
     <link rel="stylesheet" href="./../../../styles/global/headers/header-professor.css" />
@@ -56,14 +60,14 @@ $result = mysqli_query($conn, $query);
             <div class="management-header">
                 <h1>Student Management</h1>
                 <div class="button">
+                    </div>
+                    <div class="button">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                         <i class="fa-solid fa-plus"></i>
                     </button>
-                </div>
-                <div class="button">
                     <form action="insert_massive.php" method="post" enctype="multipart/form-data">
                         <label for="file">Select CSV file:</label>
-                        <input type="file" name="file" accept=".csv" required>
+                        <input id="file" type="file" name="file" accept=".csv" required>
                         <button type="submit">Import Students</button>
                     </form>
                 </div>

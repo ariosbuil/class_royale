@@ -1,6 +1,12 @@
 :root {
     --primary-color: #2185D5;
     --secondary-color: #C7EEFF;
+    --primary: #2185D5;
+    --light-primary: #C7EEFF;
+    --secondary: #99A0DA;
+    --dark: #1D242B;
+    --dark-light: #3A4750;
+    --light: #FAFAFA;
 }
 
 * {
@@ -94,4 +100,39 @@ body {
     color: #FFFFFF;
     border: none;
     font-size: 20px;
+}
+.button{
+    margin: 0px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.button form label{
+    /* display: inline-block; */
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.button form lable:hover{
+    background-color: var(--dark-light);
+}
+
+.button form input{
+    display: none;
+}
+
+.button form button{
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
 }
