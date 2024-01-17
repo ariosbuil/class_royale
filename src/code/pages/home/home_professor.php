@@ -124,7 +124,7 @@ $result2 = mysqli_query($conn, $query2);
               </div>
               <div class="button-look-project">
                 <?php
-                echo "<a href='./../management/project/project_management.php?project_id=" . $row['project_id'] . "'><svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 24 24'><path d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'/></svg></a>";
+                echo "<a href='./../management/activity/professot_manage_activity.php?project_id=" . $row['project_id'] . "'><svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 24 24'><path d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'/></svg></a>";
                 ?>
               </div>
             </div>
