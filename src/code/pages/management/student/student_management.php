@@ -27,22 +27,6 @@ $startIndex = ($currentPage - 1) * RESULTS_PER_PAGE;
 // Get the results for the current page
 $query = "SELECT * FROM Student LIMIT $startIndex, " . RESULTS_PER_PAGE;
 $result = mysqli_query($conn, $query);
-
-/* Para hacer el icono del usuario logueado
-
-    if (isset($_SESSION['username'])) {
-        $username = $_SESSION['username'];
-        $query = "SELECT * FROM Professor WHERE name = '$username'";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
-        $photo = $row['photo'];
-    } else {
-        Si no hay sesión iniciada, se redirige al login
-        header("Location: ../../login/login_professor.php?message=Please login before accessing the page");
-    }
-
-*/
-
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +46,7 @@ $result = mysqli_query($conn, $query);
 <body>
     <div class="container">
         <div class="header">
-
+            <?php include '../../../layouts/header.php'; ?>
         </div>
         <div class="management">
             <div class="management-header">

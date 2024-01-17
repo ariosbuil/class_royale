@@ -36,9 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $photo = mysqli_real_escape_string($conn, $row[4]);
                 $global_score = mysqli_real_escape_string($conn, $row[5]);
 
+                // Sanitize and hash the password
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 // Perform the insertion into the database
-                $query = "INSERT INTO Student (professor_id, name, surname, password, mail, photo, global_score) VALUES ('$professorId', '$name', '$surname', '$password', '$mail', '$photo', '$global_score')";
+                $query = "INSERT INTO Student (professor_id, name, surname, password, mail, photo, global_score) VALUES ('$professorId', '$name', '$surname', '$hashedPassword', '$mail', '$photo', '$global_score')";
                 $result = mysqli_query($conn, $query);
 
                 // Check the result of the insertion
@@ -53,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_close($conn);
 
             fclose($handle);
+            header("Location: student_management.php");
         } else {
             die("Error opening the CSV file.");
         }

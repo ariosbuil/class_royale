@@ -19,7 +19,6 @@ body {
     background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100vh;
     display: flex;
     align-items: center;
     font-family: 'Inter', sans-serif;
