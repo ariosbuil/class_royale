@@ -19,7 +19,7 @@ html {
 
 body {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@ body {
 }
 
 .container {
-    background: #FFFFFF;
+    background: var(--light);
     width: 90%;
     height: 90%;
     border-radius: 20px;
@@ -42,7 +42,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--secondary-color);
+    background-color: var(--light-primary);
     border-radius: 15px;
     padding: 20px !important;
 }
@@ -74,7 +74,7 @@ body {
     border-radius: 200px;
     padding: 10px 5px;
     margin: 5px;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     color: white;
     font-weight: bold;
     width: 50%;
