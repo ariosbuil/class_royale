@@ -183,7 +183,7 @@ a{
 /* ICONS MODIFY */
 .icons-modify{
     width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .icons-modify a{
@@ -306,4 +306,16 @@ a{
 .edit-delete-options .icons-modify a svg:hover{
     background-color: var(--dark-light);
     transition: 600ms;
+}
+
+@media (max-width: 1024px){
+    .actual-project-info h2{
+        font-size: 1.8em;
+        text-wrap: nowrap;
+        width: 300px;
+    }
+
+    .icons-modify a{
+        font-size: 10px;
+    }
 }

@@ -67,8 +67,8 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
                 ?>
               </a>
               <ul id="dropdown-image-options-content">
-                <li><a href="../management/student/student_profile.php">Change Image</a></li>
-                <li><a href="">Log Out</a></li>
+              <li><a href="./../management/student/student_profile.php">Change Image</a></li>
+              <li><a href="">Log Out</a></li>
               </ul>
             </li>
           </ul>
@@ -113,8 +113,6 @@ $resultProjects2 = mysqli_query($conn, $queryProjects2);
                   </p>
                 </div>
                 <div class="button-skill">
-                  <p>React</p>
-                  <p>React</p>
                 </div>
                 <div class="button-look-project">
                   <?php

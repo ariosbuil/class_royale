@@ -68,9 +68,9 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body>
-    <div class="cont-screen">
-        <h1>Profile</h1>
-        <form method="post" enctype="multipart/form-data">
+    <div style="height: 100%;" class="cont-screen">
+        <h1 style="padding: 10px;">Profile</h1>
+        <form style="padding-left: 10px; display: flex; flex-direction: column; gap: 15px;" method="post" enctype="multipart/form-data">
             <div class="input-box">
                 <label for="name">Nombre:</label>
                 <input type="text" name="name" value="<?php echo $row['name']; ?>">
@@ -92,13 +92,13 @@ $row = mysqli_fetch_assoc($result);
                 <input type="file" name="photo">
             </div>
             <div class="input-box">
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($row['photo']); ?>" alt="Foto de Perfil">
+                <img style="width: 100px; height: 100px; border-radius: 50px;" src="data:image/jpeg;base64,<?php echo base64_encode($row['photo']); ?>" alt="Foto de Perfil">
             </div>
             <div class="input-box">
                 <input type="submit" name="update_profile" value="Actualizar Perfil">
             </div>
         </form>
-        <a href="../../../pages/home/home_student.php">Go back</a>
+        <a style="padding: 10px; margin-top: 10px;" href="../../../pages/home/home_student.php">Go back</a>
     </div>
 </body>
 
