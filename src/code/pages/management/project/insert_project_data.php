@@ -32,8 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST['add'])) {
     // Close the connection to the database
     mysqli_close($conn);
 
-    // Redirect
-    header("Location: project_management.php");
+    // Redirect to the project management page
+    if ($result) {
+        $insert_msg = "Project created successfully.";
+        header("Location: project_management.php?update_msg=$insert_msg");
+        exit();
+    } else {
+        $error_msg = "Error creating project: " . mysqli_error($conn);
+        header("Location: project_management.php?error_msg=$error_msg");
+        exit();
+    }
 } else {
     die("Access not allowed.");
 }
