@@ -118,8 +118,12 @@ $result2 = mysqli_query($conn, $query2);
                   </p>
                 </div>
                 <div class="button-skill">
-                  <p>React</p>
-                  <p>React</p>
+                  <?php
+                  $rowItem = "SELECT * FROM Item WHERE item_id = $row[project_item_id]";
+                  $resultItem = mysqli_query($conn, $rowItem);
+                  $resultItem = mysqli_fetch_assoc($resultItem);
+                  echo '<p>' . $resultItem['name'] . '</p>';
+                  ?>
                 </div>
               </div>
               <div class="button-look-project">
