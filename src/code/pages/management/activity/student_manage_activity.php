@@ -47,7 +47,7 @@ if (isset($_POST['filter'])) {
 <body>
     <div class="cont-screen">
         <div class="header">
-            <?php include '../../../layouts/header.php'; ?>
+            <?php include '../../../layouts/header-student.php'; ?>
         </div>
         <div class="content-manage-screen">
             <div class="actual-project flex">
@@ -58,7 +58,7 @@ if (isset($_POST['filter'])) {
                     echo '<p>' . $resultProject['description'] . '</p>';
                     ?>
                 </div>
-                <div class="icons-modify flex">
+                <div style="visibility: hidden;" class="icons-modify flex">
                     <a href="./activity_management.php">
                         Edit Activity
                     </a>
@@ -73,12 +73,12 @@ if (isset($_POST['filter'])) {
                 <div class="filter-by-projects">
                     <h4>Filter By: </h4>
                     <div class="button-filter-by">
-                        <form method="post">
+                        <form style="display: flex; gap: 10px; margin-left: 15px;" method="post">
                             <?php
                             $queryActive = "SELECT is_active FROM Activity WHERE project_id = $projectId";
 
                             ?>
-                            <select name="filter-selection" id="filter-selection">
+                            <select style="padding: 10px; border-radius: 10px;" name="filter-selection" id="filter-selection">
                                 <option value="all" selected>All</option>
                                 <option value="1">Active</option>
                                 <option value="0">Inactive</option>
@@ -102,6 +102,10 @@ if (isset($_POST['filter'])) {
                                 $resultItem = mysqli_query($conn, $rowItem);
                                 $resultItem = mysqli_fetch_assoc($resultItem);
                                 echo '<p>' . $resultItem['name'] . '</p>';
+                                // Icon
+                                echo '<img style="width: 30px; height="30px; margin-left: 15px;" src="data:image/jpeg;base64,' . base64_encode($resultItem['icon']) . ' " alt="Item Picture">';
+                                // Nota
+                                echo '<h4 style="width: 20%; margin-left: 15px;">Score: ' . $actRow['total_score'] . '</h4>';
                                 ?>
                             </div>
                         </div>
