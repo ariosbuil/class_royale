@@ -29,6 +29,11 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GLOBAL CONFIGURATIONS -->
+    <link rel="stylesheet" href="./../../../styles/global/global.css" />
+    <link rel="stylesheet" href="./../../../styles/global/headers/header-professor.css" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Font Awesome -->
     <?php include '../../../layouts/fontawesome.php' ?>
     <link rel="stylesheet" href="../../../styles/item_management.css">
@@ -40,7 +45,7 @@ $result = mysqli_query($conn, $query);
 <body>
     <div class="container">
         <div class="header">
-            <?php include '../../header.php' ?>
+            <?php include './../../../layouts/header.php' ?>
         </div>
         <div class="management">
             <div class="management-header">
