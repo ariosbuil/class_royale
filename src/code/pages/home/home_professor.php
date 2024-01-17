@@ -23,6 +23,7 @@ $result2 = mysqli_query($conn, $query2);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./../../styles/home_styles.css" />
+  <link rel="stylesheet" href="./../../styles/global/global.css" />
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -43,10 +43,10 @@ $resultActivity = mysqli_query($conn, $rowActivity);
                     ?>
                 </div>
                 <div class="icons-modify flex">
-                    <a href="">
+                    <a href="./activity_management.php">
                         Edit Activity
                     </a>
-                    <a href="">
+                    <a href="./../project/project_management">
                         Edit Project
                     </a>
                 </div>

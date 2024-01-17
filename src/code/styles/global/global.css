@@ -1,0 +1,55 @@
+:root {
+    --primary: #2185D5;
+    --light-primary: #C7EEFF;
+    --secondary: #99A0DA;
+    --dark: #1D242B;
+    --dark-light: #3A4750;
+    --light: #FAFAFA;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    /* background: rgb(33,133,213); */
+    background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    padding: 4% 0%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.cont-screen {
+    width: 96%;
+    margin: 1% auto;
+    /* height: 92vh; */
+    /* overflow: scroll; */
+    background-color: white;
+    border-radius: 10px;
+    /* Add these lines to hide the scrollbar */
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+}
+
+.cont-screen::-webkit-scrollbar {
+    display: none;
+    /* For Chrome, Safari and Opera */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
