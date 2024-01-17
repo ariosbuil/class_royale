@@ -11,6 +11,7 @@ html,
 body {
     margin: 0px;
     padding: 0px;
+    height: 100%;
 }
 
 body {
@@ -18,11 +19,10 @@ body {
     background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100vh;
     display: flex;
     align-items: center;
     font-family: 'Inter', sans-serif;
-    padding: 4% 0%;
+    padding: 2% 0%;
 }
 
 a{
@@ -31,7 +31,7 @@ a{
 
 .cont-screen {
     width: 96%;
-    margin: 1% auto;
+    margin: auto;
     /* height: 92vh; */
     /* overflow: scroll; */
     background-color: white;
@@ -56,9 +56,9 @@ a{
 
 /** HEADER */
 .header {
-    padding: 1% 0%;
+    /* padding: 1% 0%; */
     width: 85%;
-    height: 50px;
+    /* height: 50px; */
     margin: auto;
     display: flex;
     align-items: center;
@@ -69,46 +69,28 @@ a{
     margin-top: 40px;
 }
 
-.logo, .cont-for-header-flex{
-    margin: 0px 10px;
+.cont-header{
+    width: 99%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1% 0px; */
+
 }
 
-.logo img {
-    width: 100%;
-    max-width: 140px;
+.header .cont-header img{
+    max-width: 120px;
 }
 
-
-.menu ul li a svg {
-    width: 100%;
-    max-width: 80px;
-    max-height: 80px;
-}
-
-.menu ul li ul {
-    display: none;
-}
-
-.menu ul {
-    list-style: none;
-    padding: 0%;
-}
-
-.menu li a {
-    text-decoration: none;
-}
-
-.menu ul li a:hover {
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-.login ul li img {
-    width: 100%;
-    max-width: 65px;
+#profile-container img{
     border-radius: 100%;
+    max-width: 60px;
+    max-width: 60px;
+
 }
 
+/* dropdown */
 #dropdown-more-options-content,
 #dropdown-image-options-content {
     position: absolute;
