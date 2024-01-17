@@ -74,7 +74,7 @@ $result2 = mysqli_query($conn, $query2);
               <a id="dropdown-image-options">
                 <?php
                 $photo_professor = "SELECT photo FROM Professor WHERE professor_id = " . $_SESSION['professor_id'];
-                echo "<img style='width: 80px; height: 80px;' src='data:image/jpeg;base64," . base64_encode(mysqli_fetch_assoc(mysqli_query($conn, $photo_professor))['photo']) . "'>";
+                echo "<img src='data:image/jpeg;base64," . base64_encode(mysqli_fetch_assoc(mysqli_query($conn, $photo_professor))['photo']) . "'>";
                 ?>
               </a>
               <ul id="dropdown-image-options-content">
@@ -119,19 +119,21 @@ $result2 = mysqli_query($conn, $query2);
                     ?>
                   </p>
                 </div>
-                <div class="button-skill">
-                  <?php
-                  $rowItem = "SELECT * FROM Item WHERE item_id = $row[project_item_id]";
-                  $resultItem = mysqli_query($conn, $rowItem);
-                  $resultItem = mysqli_fetch_assoc($resultItem);
-                  echo '<p>' . $resultItem['name'] . '</p>';
-                  ?>
+                <div class="important-buttons flex">
+                  <div class="button-skill">
+                    <?php
+                    $rowItem = "SELECT * FROM Item WHERE item_id = $row[project_item_id]";
+                    $resultItem = mysqli_query($conn, $rowItem);
+                    $resultItem = mysqli_fetch_assoc($resultItem);
+                    echo '<p>' . $resultItem['name'] . '</p>';
+                    ?>
+                  </div>
+                  <div class="button-look-project">
+                    <?php
+                    echo "<a href='./../management/activity/professor_manage_activity.php?project_id=" . $row['project_id'] . "'><svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 24 24'><path d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'/></svg></a>";
+                    ?>
+                  </div>
                 </div>
-              </div>
-              <div class="button-look-project">
-                <?php
-                echo "<a href='./../management/activity/professor_manage_activity.php?project_id=" . $row['project_id'] . "'><svg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 24 24'><path d='M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5'/></svg></a>";
-                ?>
               </div>
             </div>
           <?php

@@ -55,6 +55,11 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GLOBAL CONFIGURATIONS -->
+    <link rel="stylesheet" href="./../../../styles/global/global.css" />
+    <link rel="stylesheet" href="./../../../styles/global/headers/header-professor.css" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <!-- Font Awesome -->
     <?php include '../../../layouts/fontawesome.php' ?>
     <link rel="stylesheet" href="../../../styles/activity_management.css">
@@ -71,9 +76,9 @@ $result = mysqli_query($conn, $query);
         <div class="management">
             <div class="management-header">
                 <h1>Activity Management</h1>
-                <div class="filter">
+                <!-- <div class="filter">
                     <input type="text" id="activityFilter" name="filterText" placeholder="Filter activities...">
-                </div>
+                </div> -->
                 <div class="button">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                         <i class="fa-solid fa-plus"></i>

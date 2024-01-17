@@ -26,21 +26,10 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
-    height: 90%;
+    width: 97% !important;
+    height: 96vh;
     background: #FFFFFF;
     border-radius: 15px;
-    padding: 1rem;
-}
-
-.container .header {
-    background: var(--secondary-color);
-    width: 90%;
-    height: 10%;
-    border-radius: 35px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem;
 }
 
@@ -99,6 +88,10 @@ body {
     gap: 20px;
 }
 
+.result-desc{
+    width: 100%;
+}
+
 .action-buttons .button {
     display: flex;
     justify-content: flex-end;
@@ -133,4 +126,21 @@ body {
 
 .pages a.current {
     background-color: #2c3e50;
+}
+
+@media (max-width: 1025px){
+    .result-desc{
+        display: none;
+    }
+}
+
+@media (max-width: 425px){
+    .result-item{
+        display: block;
+        overflow: hidden;
+    }
+
+    .result-item .action-buttons{
+        margin: auto;
+    }
 }

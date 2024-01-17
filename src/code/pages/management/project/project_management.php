@@ -12,7 +12,6 @@ define("RESULTS_PER_PAGE", 3);
 //     echo "<h6>" . $_GET['insert_msg'] . "</h6>";
 // }
 
-
 // Total results
 $query = "SELECT COUNT(*) as total FROM Project";
 $result = mysqli_query($conn, $query);
@@ -55,6 +54,13 @@ $result = mysqli_query($conn, $query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GLOBAL CONFIGURATIONS -->
+    <link rel="stylesheet" href="./../../../styles/global/global.css" />
+    <link rel="stylesheet" href="./../../../styles/global/headers/header-professor.css" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <?php include '../../../layouts/fontawesome.php' ?>
     <link rel="stylesheet" href="../../../styles/project_management.css">

@@ -1,0 +1,28 @@
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header .cont-header {
+    background: var(--secondary-color);
+    width: 90%;
+    border-radius: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.header .cont-header img{
+    max-width: 120px;
+}
+
+#profile-container img{
+    border-radius: 100%;
+    max-width: 60px;
+    max-width: 60px;
+
+}

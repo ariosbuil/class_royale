@@ -18,11 +18,11 @@ body {
     background: linear-gradient(140deg, var(--primary) 0%, var(--light-primary) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100vh;
+    font-family: 'Inter', sans-serif;
     display: flex;
     align-items: center;
-    font-family: 'Inter', sans-serif;
-    padding: 4% 0%;
+    padding: 30px auto;
+    margin: 30px auto;
 }
 
 a{
@@ -31,21 +31,9 @@ a{
 
 .cont-screen {
     width: 96%;
-    margin: 1% auto;
-    /* height: 92vh; */
-    /* overflow: scroll; */
+    margin: auto;
     background-color: white;
     border-radius: 10px;
-    /* Add these lines to hide the scrollbar */
-    scrollbar-width: none;
-    /* For Firefox */
-    -ms-overflow-style: none;
-    /* For Internet Explorer and Edge */
-}
-
-.cont-screen::-webkit-scrollbar {
-    display: none;
-    /* For Chrome, Safari and Opera */
 }
 
 .flex {

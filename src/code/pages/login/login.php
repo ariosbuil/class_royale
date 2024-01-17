@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include '../../connection.php';
 
@@ -43,28 +43,37 @@ if (isset($_POST['login'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
     <link rel="stylesheet" href="../../styles/login.css">
-    <title>Login Professor</title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Log In</title>
 </head>
+
 <body>
     <div class="container">
         <div class="login-form">
             <form method="post">
-                <h1 style="margin-bottom: 5px; text-align: center;">Login Professor</h1>
+                <img src="./../../../img/logo.png" alt="logo">
+                <h1>Log In</h1>
                 <div class="input-box">
-                    <input style="padding: 5px; border-radius: 5px; margin-bottom: 5px;" type="text" name="username" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username">
                 </div>
                 <div class="input-box">
-                    <input style="padding: 5px; border-radius: 5px; margin-bottom: 5px;" type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
                 </div>
                 <div class="input-box">
-                    <input style="padding: 5px; border-radius: 5px;" type="submit" name="login" value="Login">
+                    <input id="button-submit" type="submit" name="login" value="Login">
                 </div>
             </form>
         </div>
     </div>
 </body>
+
 </html>
