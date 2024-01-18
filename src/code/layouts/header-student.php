@@ -3,6 +3,10 @@ include '../../connection.php';
 session_start();
 
 $student_id = $_SESSION['student_id'];
+
+if (!isset($_SESSION['student_id'])) {
+    header("Location: ../../login/login.php");
+}
 ?>
 
 
@@ -19,7 +23,7 @@ if ($resultPhoto && mysqli_num_rows($resultPhoto) > 0) {
     echo '<img id="profile-image" style="border-radius: 100%; height: 60px; width: 60px;" src="data:image/jpeg;base64,' . base64_encode($rowPhoto['photo']) . ' " alt="Profile Picture">';
     ?>
     <ul id="profile-menu" class="hidden">
-        <li style="border-bottom: 1px solid black;"><a href="../management/student/student_profile.php">Profile</a></li>
+        <li style="border-bottom: 1px solid black;"><a href="../student/student_profile.php">Profile</a></li>
         <li><a href="../../login/logout_process.php">Log Out</a></li>
     </ul>
     <?php

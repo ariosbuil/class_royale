@@ -4,6 +4,10 @@ session_start();
 
 $professor_id = $_SESSION['professor_id'];
 
+if (!isset($_SESSION['professor_id'])) {
+    header("Location: ../../login/login.php");
+}
+
 ?>
 
 

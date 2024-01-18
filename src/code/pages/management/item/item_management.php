@@ -8,7 +8,6 @@ include '../../../connection.php';
 
 define("RESULTS_PER_PAGE", 3); 
 
-
 // Total results
 $query = "SELECT COUNT(*) as total FROM Item";
 $result = mysqli_query($conn, $query);
