@@ -52,18 +52,16 @@ $result = mysqli_query($conn, $query);
         <div class="header">
             <?php include '../../../layouts/header.php'; ?>
         </div>
-        <div class="management">
+        <div style="padding: 10px" class="management">
             <div class="management-header">
                 <h1>Student Management</h1>
                 <div class="button">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
                         <i class="fa-solid fa-plus"></i>
                     </button>
-                </div>
-                <div class="button">
                     <form action="insert_massive.php" method="post" enctype="multipart/form-data">
                         <label for="file">Select CSV file:</label>
-                        <input type="file" name="file" accept=".csv" required>
+                        <input id="file" type="file" name="file" accept=".csv" required>
                         <button type="submit">Import Students</button>
                     </form>
                 </div>
@@ -97,7 +95,7 @@ $result = mysqli_query($conn, $query);
         <?php
         // Mostrar enlaces de paginación
         for ($page = 1; $page <= $totalPages; $page++) {
-            echo "<a href='student_management.php?page=$page'>$page</a> ";
+            echo "<a href='student_management.php?page=$page' class='$class circle'>$page</a> ";
         }
         ?>
     </div>

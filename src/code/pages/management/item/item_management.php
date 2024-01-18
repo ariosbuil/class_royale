@@ -6,21 +6,27 @@ include '../../../connection.php';
 //     echo "<h6>" . $_GET['insert_msg'] . "</h6>";
 // }
 
+define("RESULTS_PER_PAGE", 3); 
 
-$query = "SELECT * FROM Item";
+
+// Total results
+$query = "SELECT COUNT(*) as total FROM Item";
 $result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+$totalResults = $row['total'];
 
-/* Para hacer el icono del usuario logueado
+// Total number of pages
+$totalPages = ceil($totalResults / RESULTS_PER_PAGE);
 
-    if (isset($_SESSION['username'])) {
-        $username = $_SESSION['username'];
-        $query = "SELECT * FROM Professor WHERE name = '$username'";
-        $result = mysqli_query($conn, $query);
-        $row = mysqli_fetch_assoc($result);
-        $photo = $row['photo'];
-    }
+// Current page
+$currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
 
-*/
+// Calculate start index for the results
+$startIndex = ($currentPage - 1) * RESULTS_PER_PAGE;
+
+// Get the results for the current page
+$query = "SELECT * FROM Item LIMIT $startIndex, " . RESULTS_PER_PAGE;
+$result = mysqli_query($conn, $query);
 
 ?>
 
@@ -81,6 +87,14 @@ $result = mysqli_query($conn, $query);
                 <?php
                 }
                 ?>
+                <div class="pagination">
+        <?php
+        // Mostrar enlaces de paginación
+        for ($page = 1; $page <= $totalPages; $page++) {
+            echo "<a href='item_management.php?page=$page' class='$class circle'>$page</a> ";
+        }
+        ?>
+    </div>
             </div>
         </div>
 

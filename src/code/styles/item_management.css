@@ -46,6 +46,9 @@ body {
 .management-header {
     width: 100%;
     height: 30%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .management-body {
@@ -94,4 +97,17 @@ body {
     color: #FFFFFF;
     border: none;
     font-size: 20px;
+}
+
+.circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+    text-decoration: none;
 }
