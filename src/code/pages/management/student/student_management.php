@@ -8,10 +8,6 @@ define("RESULTS_PER_PAGE", 3);
 //     echo "<h6>" . $_GET['insert_msg'] . "</h6>";
 // }
 
-if ($_SESSION['professor_id'] == null) {
-    header("Location: ../../login/login.php");
-}
-
 
 // Total results
 $query = "SELECT COUNT(*) as total FROM Student";
