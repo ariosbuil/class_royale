@@ -255,10 +255,10 @@ $result = mysqli_query($conn, $query);
                                 ?>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="is_active">Is Active:</label>
-                        <input type="checkbox" name="is_active" value="1" <?php echo isset($row['is_active']) && $row['is_active'] ? 'checked' : ''; ?>>
+                        <div class="form-group">
+                            <label for="is_active">Is Active:</label>
+                            <input type="checkbox" name="is_active" value="1" <?php echo isset($row['is_active']) && $row['is_active'] ? 'checked' : ''; ?>>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="activity_id" id="edit-activity-id">
